@@ -32,6 +32,13 @@
   opacity: 1;
 }
 
+form {
+  position: fixed;
+  bottom: 20px;
+  z-index: 1;
+  width: 100%;
+}
+
 .app__message_form {
   flex-direction: row !important;
   width: 60%;
@@ -47,13 +54,19 @@
   width: 100%;
 }
 
+.app__message_form__input input {
+  border-radius: 5px !important;
+}
+
 .app__message_form__btn {
+  flex: 0;
   border-radius: 50% !important;
-  width: 64px;
-  height: 64px;
+  width: 64px !important;
+  height: 64px !important;
   font-size: 10px !important;
   background-color: rgba(63, 81, 181, 0.5) !important;
   color: #f4f4f4 !important;
+  margin-left: 10px;
 }
 
 .app__message_form__btn:disabled {

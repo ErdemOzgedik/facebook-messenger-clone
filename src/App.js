@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import db from "./firebase";
 import firebase from "firebase";
-import { Button, FormControl, Input, InputLabel } from "@material-ui/core";
+import { FormControl, IconButton, Input, InputLabel } from "@material-ui/core";
 import Message from "./components/message/Message";
 import FlipMove from "react-flip-move";
+import { Send } from "@material-ui/icons";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -67,7 +68,7 @@ function App() {
                 onChange={(e) => setMessage(e.target.value)}
               />
             </div>
-            <Button
+            <IconButton
               className="app__message_form__btn"
               variant="outlined"
               color="primary"
@@ -75,8 +76,8 @@ function App() {
               type="submit"
               onClick={sendMessage}
             >
-              SEND MESSAGE
-            </Button>
+              <Send />
+            </IconButton>
           </FormControl>
         </form>
       ) : (
