@@ -27,16 +27,13 @@ function App() {
   };
 
   useEffect(() => {
-    dbCollection.orderBy("timestamp", "desc").onSnapshot((snap) => {
-      snap.docs.map((doc) => {
-        return setMessages((preMessages) => [
-          ...preMessages,
-          {
-            id: doc.id,
-            message: doc.data().message,
-          },
-        ]);
-      });
+    dbCollection.orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+      setMessages(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          message: doc.data().message,
+        }))
+      );
     });
   }, []);
 
@@ -45,7 +42,7 @@ function App() {
       <h1>FACEBOOK MESSENGER 🐭 </h1>
       <form>
         <input value={message} onChange={(e) => setMessage(e.target.value)} />
-        <button type="submit" onClick={sendMessage}>
+        <button disabled={!message} type="submit" onClick={sendMessage}>
           SEND MESSAGE
         </button>
       </form>
