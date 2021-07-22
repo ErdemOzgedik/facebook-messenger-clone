@@ -4,6 +4,7 @@ import db from "./firebase";
 import firebase from "firebase";
 import { Button, FormControl, Input, InputLabel } from "@material-ui/core";
 import Message from "./components/message/Message";
+import FlipMove from "react-flip-move";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -85,9 +86,11 @@ function App() {
       )}
 
       <div className="messages">
-        {messages?.map((item) => (
-          <Message key={item.id} username={username} message={item} />
-        ))}
+        <FlipMove>
+          {messages?.map((item) => (
+            <Message key={item.id} username={username} message={item} />
+          ))}
+        </FlipMove>
       </div>
     </div>
   );
