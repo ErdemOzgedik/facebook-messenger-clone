@@ -1,12 +1,31 @@
 .message {
-    padding: 10px;
+    padding: 0px 10px;
     margin: 10px;
     width: fit-content;
-    text-align: right !important;
+    text-align: left !important;
+    border-radius: 15px !important;
+}
+
+.message span {
+    padding: 0px 10px;
+    margin-bottom: 5px;
+    color: rgb(141, 84, 84);
+    text-align: left !important;
+}
+
+.message div {
+    padding-bottom: 0 !important;
 }
 
 .message__user {
     margin-left: auto;
+    text-align: right !important;
+}
+
+.message__userCard {
     background-color: #3f51b5 !important;
-    text-align: left !important;
+}
+
+.message__guestCard {
+    background-color: #e9e9eb !important;
 }

@@ -30,6 +30,11 @@ function App() {
     setMessage("");
   };
 
+  const handleUsername = () => {
+    const name = prompt("enter your username!!!");
+    setUsername(name);
+  };
+
   useEffect(() => {
     const name = prompt("enter your username!!!");
     setUsername(name);
@@ -48,18 +53,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>FACEBOOK MESSENGER 🐭 </h1>
-      <h2>Welcome {username}</h2>
+      <h1 className="app__header">FACEBOOK MESSENGER 🤟 </h1>
+      <h2 className="app__header__secondary">Welcome {username}</h2>
       {username ? (
         <form>
-          <FormControl>
-            <InputLabel htmlFor="message-input">Aa</InputLabel>
-            <Input
-              id="message-input"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
+          <FormControl className="app__message_form">
+            <div className="app__message_form__input">
+              <InputLabel htmlFor="message-input">Aa</InputLabel>
+              <Input
+                id="message-input"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </div>
             <Button
+              className="app__message_form__btn"
               variant="outlined"
               color="primary"
               disabled={!message}
@@ -71,7 +79,9 @@ function App() {
           </FormControl>
         </form>
       ) : (
-        <p>Please Enter Your Username To Send Message</p>
+        <p className="app__warning" onClick={handleUsername}>
+          Please Click To Set Your Username
+        </p>
       )}
 
       <div className="messages">
